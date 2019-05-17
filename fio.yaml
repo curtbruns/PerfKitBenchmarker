@@ -1,0 +1,21 @@
+static_vms:  # Any key is accepted here.
+  - &vm1
+    ip_address: fmdcppzona01
+    user_name: root
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    install_packages: false
+    disk_specs:
+      - device_path: /dev/nvme0n1
+  - &vm2
+    ip_address: fmdcppzona02
+    user_name: root
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    install_packages: false
+    disk_specs:
+      - device_path: /dev/nvme0n1
+
+benchmarks:
+  - fio: {vm_groups: {default: {static_vms: [*vm1]}},
+          flags: {fio_target_mode: against_device_without_fill }}
+          #  - fio: {vm_groups: {default: {static_vms: [*vm2]}},
+    #          flags: {fio_target_mode: against_device_without_fill}}

@@ -1,0 +1,24 @@
+static_vms:
+  - &vm1
+    ip_address: 10.2.49.32
+    user_name: cebruns
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    internal_ip: 10.2.49.32
+    install_packages: false
+  - &vm2
+    ip_address: 10.2.49.150
+    user_name: cebruns
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    internal_ip: 10.2.49.32
+    install_packages: false
+
+ping:
+        #  flags:
+        #    iperf_runtime_in_seconds: 10
+  vm_groups:
+    vm_1:
+      static_vms:
+        - *vm2
+    vm_2:
+      static_vms:
+        - *vm1

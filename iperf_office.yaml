@@ -1,0 +1,25 @@
+static_vms:
+  - &vm1
+    ip_address: ceb-ubu14.ch.intel.com
+    user_name: cebruns
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    internal_ip: 12.12.12.1
+    install_packages: false
+  - &vm2
+    ip_address: ceb-ubu14-2.ch.intel.com
+    user_name: cebruns
+    ssh_private_key: /Users/cebruns/.ssh/id_rsa
+    internal_ip: 12.12.12.2
+    install_packages: false
+
+iperf:
+  flags:
+    iperf_runtime_in_seconds: 10
+    iperf_sending_thread_count: 8
+  vm_groups:
+    vm_1:
+      static_vms:
+        - *vm2
+    vm_2:
+      static_vms:
+        - *vm1

@@ -84,7 +84,7 @@ flags.DEFINE_boolean('simulate_maintenance', False,
 flags.DEFINE_integer('simulate_maintenance_delay', 0,
                      'The number of seconds to wait to start simulating '
                      'maintenance.')
-flags.DEFINE_boolean('ssh_reuse_connections', True,
+flags.DEFINE_boolean('ssh_reuse_connections', False,
                      'Whether to reuse SSH connections rather than '
                      'reestablishing a connection for each remote command.')
 flags.DEFINE_integer('ssh_server_alive_interval', 30,

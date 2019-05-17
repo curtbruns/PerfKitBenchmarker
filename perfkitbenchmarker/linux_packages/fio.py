@@ -33,7 +33,8 @@ from perfkitbenchmarker.linux_packages import INSTALL_DIR
 from six.moves import range
 import six.moves.configparser
 
-FIO_DIR = '%s/fio' % INSTALL_DIR
+#FIO_DIR = '%s/fio' % INSTALL_DIR
+FIO_DIR = '/usr/bin'
 GIT_REPO = 'http://git.kernel.dk/fio.git'
 GIT_TAG = 'fio-2.17'
 FIO_PATH = FIO_DIR + '/fio'
